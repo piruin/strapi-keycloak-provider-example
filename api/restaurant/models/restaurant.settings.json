@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurants",
+  "info": {
+    "name": "restaurant"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 120,
+      "minLength": 3
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "categories": {
+      "collection": "category",
+      "via": "restaurants"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "content.image-with-description",
+        "content.title-with-subtitle"
+      ]
+    },
+    "cover": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "opening_hours": {
+      "type": "component",
+      "repeatable": true,
+      "component": "restaurant.opening-hours"
+    }
+  }
+}

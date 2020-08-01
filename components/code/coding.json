@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_code_codings",
+  "info": {
+    "name": "Code",
+    "icon": "binoculars"
+  },
+  "options": {},
+  "attributes": {
+    "Coding": {
+      "type": "component",
+      "repeatable": true,
+      "component": "code.codeable-concept"
+    },
+    "display": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    }
+  }
+}

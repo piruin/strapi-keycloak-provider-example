@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_content_image_with_descriptions",
+  "info": {
+    "name": "Image With Description",
+    "icon": "camera-retro"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

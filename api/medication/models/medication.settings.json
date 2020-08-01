@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "medication",
+  "info": {
+    "name": "Medication"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "default": "active",
+      "required": true
+    },
+    "code": {
+      "type": "component",
+      "repeatable": false,
+      "component": "code.coding"
+    }
+  }
+}

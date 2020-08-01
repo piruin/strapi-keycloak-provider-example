@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_content_title_with_subtitles",
+  "info": {
+    "name": "Title With Subtitle",
+    "icon": "book-open"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    }
+  }
+}
