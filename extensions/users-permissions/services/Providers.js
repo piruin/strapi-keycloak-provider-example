@@ -385,6 +385,38 @@ const getProfile = async (provider, query, callback) => {
         });
       break;
     }
+    case 'keycloak': {
+      const keycloak = new Purest({
+        provider: 'keycloak',
+        config: {
+          'keyclock': {
+            'https://your.keycloak.url/auth/realms/your_realm/': {
+              '__domain': {
+                'auth': {
+                  'auth': {'bearer': '[0]'}
+                }
+              },
+              '{endpoint}': {
+                '__path': {
+                  'alias': '__default'
+                }
+              }
+            }
+          }
+        }
+      });
+      keycloak.query().get('protocol/openid-connect/userinfo').auth(access_token).request((err, res, body) => {
+        if (err) {
+          callback(err);
+        } else {
+          callback(null, {
+            username: body.preferred_username,
+            email: body.email
+          });
+        }
+      });
+      break;
+    }
     default:
       callback({
         message: 'Unknown provider.',

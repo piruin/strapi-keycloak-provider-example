@@ -94,6 +94,17 @@ module.exports = async () => {
       callback: `${strapi.config.server.url}/auth/twitch/callback`,
       scope: ['user:read:email'],
     },
+    keycloak: {
+      enabled: false,
+      icon: 'key',
+      key: '',
+      secret: '',
+      oauth: 2,
+      authorize_url: 'https://your.keycloak.url/auth/realms/your_realm/protocol/openid-connect/auth',
+      access_url: 'https://your.keycloak.url/auth/realms/your_realm/protocol/openid-connect/token',
+      callback: `${strapi.config.server.url}/auth/keycloak/callback`,
+      scope: ['openid']
+    }
   };
   const prevGrantConfig = (await pluginStore.get({ key: 'grant' })) || {};
   // store grant auth config to db
